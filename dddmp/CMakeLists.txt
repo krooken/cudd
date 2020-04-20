@@ -1,0 +1,24 @@
+if (INCLUDE_DDDMP)
+	set (SOURCE
+		${SOURCE}
+		${CMAKE_CURRENT_SOURCE_DIR}/dddmpBinary.c
+		${CMAKE_CURRENT_SOURCE_DIR}/dddmpConvert.c
+		${CMAKE_CURRENT_SOURCE_DIR}/dddmpDbg.c
+		${CMAKE_CURRENT_SOURCE_DIR}/dddmpLoad.c
+		${CMAKE_CURRENT_SOURCE_DIR}/dddmpLoadCnf.c
+		${CMAKE_CURRENT_SOURCE_DIR}/dddmpNodeAdd.c
+		${CMAKE_CURRENT_SOURCE_DIR}/dddmpNodeBdd.c
+		${CMAKE_CURRENT_SOURCE_DIR}/dddmpNodeCnf.c
+		${CMAKE_CURRENT_SOURCE_DIR}/dddmpStoreAdd.c
+		${CMAKE_CURRENT_SOURCE_DIR}/dddmpStoreBdd.c
+		${CMAKE_CURRENT_SOURCE_DIR}/dddmpStoreCnf.c
+		${CMAKE_CURRENT_SOURCE_DIR}/dddmpStoreMisc.c
+		${CMAKE_CURRENT_SOURCE_DIR}/dddmpUtil.c
+		PARENT_SCOPE)
+	
+	set (HEADERS
+		${CMAKE_CURRENT_SOURCE_DIR}/dddmp.h
+		${CMAKE_CURRENT_SOURCE_DIR}/dddmpInt.h
+		PARENT_SCOPE)
+		
+endif ()

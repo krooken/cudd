@@ -1,0 +1,11 @@
+if (INCLUDE_OBJ)
+	set (SOURCE
+		${SOURCE}
+		${CMAKE_CURRENT_SOURCE_DIR}/cuddObj.cc
+		PARENT_SCOPE)
+	
+	set (HEADERS
+		${HEADERS}
+		${CMAKE_CURRENT_SOURCE_DIR}/cuddObj.hh
+		PARENT_SCOPE)
+endif ()
