@@ -101,9 +101,7 @@ add_subdirectory (util)
 add_subdirectory (st)
 add_subdirectory (mtr)
 add_subdirectory (epd)
-if (INCLUDE_DDDMP)
-	add_subdirectory (dddmp)
-endif ()
+add_subdirectory (dddmp)
 if (INCLUDE_OBJ)
 	add_subdirectory (cplusplus)
 endif ()
@@ -112,7 +110,7 @@ if (HAVE_DOXYGEN)
 	add_custom_command(
 		OUTPUT html/index.html
 		MAIN_DEPENDENCY Doxyfile
-		DEPENDS ${SOURCE} ${HEADERS}
+		DEPENDS ${SOURCE} ${HEADERS} ${DDDMP_HEADERS}
 		COMMAND doxygen ${PROJECT_BINARY_DIR}/Doxyfile
         WORKING_DIRECTORY ${PROJECT_BINARY_DIR}
         COMMENT "Generating API documentation with Doxygen"
@@ -150,4 +148,18 @@ if (INCLUDE_DDDMP)
 endif ()
 if (INCLUDE_OBJ)
 	target_include_directories(cudd PRIVATE ${PROJECT_SOURCE_DIR}/cplusplus)
+endif ()
+
+if (NOT INCLUDE_DDDMP)
+	add_library (dddmp ${DDDMP_SOURCE})
+
+	target_include_directories (dddmp
+		PRIVATE ${PROJECT_SOURCE_DIR}
+		PRIVATE ${PROJECT_SOURCE_DIR}/dddmp
+		PRIVATE ${PROJECT_SOURCE_DIR}/cudd
+		PRIVATE ${PROJECT_SOURCE_DIR}/util
+		PRIVATE ${PROJECT_SOURCE_DIR}/st
+		PRIVATE ${PROJECT_SOURCE_DIR}/mtr
+		PRIVATE ${PROJECT_SOURCE_DIR}/epd
+		)
 endif ()
