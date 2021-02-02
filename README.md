@@ -80,9 +80,11 @@ dynamically linked nanotrav, specify the option ```--trace-children=yes```.
 
 CMake have been tested to generate build files for Visual Studio 15.
 For instance, run the following command from the CUDD root directory
-to generate build files for Visual Studio with a 64-bit target:
+to generate build files for Visual Studio with a 64-bit target use
+one of the following commands:
 ```
 cmake -S . -B .\VS2017x64 -G "Visual Studio 15 2017 Win64"
+cmake -S . -B .\VS2019x64 -G "Visual Studio 16 2019" -A "x64"
 ```
 Then use Visual Studio to compile CUDD into a library (in .\VS2017x64\Release).
 
